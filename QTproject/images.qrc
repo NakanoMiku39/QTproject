@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/pandemic.jpg</file>
+        <file>img/map.png</file>
+    </qresource>
+</RCC>
