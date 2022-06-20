@@ -14,9 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/img/pandemic.jpg);
-
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -33,22 +31,9 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>30</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
+      <widget class="QWidget" name="widget" native="true">
        <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Pandemic the Game</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <string notr="true">image: url(:/img/img/title.jpg);</string>
        </property>
       </widget>
      </item>
@@ -104,7 +89,25 @@
       </widget>
      </item>
     </layout>
+    <zorder>widget</zorder>
+    <zorder>exitB</zorder>
+    <zorder>startB</zorder>
    </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1001</width>
+      <height>801</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/img/img/pandemic.jpg);</string>
+    </property>
+   </widget>
+   <zorder>widget_2</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
