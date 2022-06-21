@@ -7,6 +7,8 @@ game::game(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->actions->setHidden(true);
+    ui->hand->setHidden(true);
+
 }
 
 
@@ -24,5 +26,16 @@ void game::on_show_actions_clicked()
     }
     else if(ui->actions->isHidden() == false){
         ui->actions->hide();
+    }
+}
+
+
+void game::on_show_hand_clicked()
+{
+    if(ui->hand->isHidden() == true){
+        ui->hand->show();
+    }
+    else if(ui->hand->isHidden() == false){
+        ui->hand->hide();
     }
 }

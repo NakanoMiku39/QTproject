@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <QWidget>
+#include <QPixmap>
 
 namespace Ui {
 class game;
@@ -18,6 +19,8 @@ public:
 private slots:
 
     void on_show_actions_clicked();
+
+    void on_show_hand_clicked();
 
 private:
     Ui::game *ui;

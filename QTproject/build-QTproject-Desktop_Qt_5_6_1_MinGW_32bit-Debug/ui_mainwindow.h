@@ -63,6 +63,7 @@ public:
         font.setBold(true);
         font.setWeight(75);
         startB->setFont(font);
+        startB->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
 
         verticalLayout_2->addWidget(startB);
 
@@ -76,6 +77,7 @@ public:
         exitB->setSizePolicy(sizePolicy);
         exitB->setMinimumSize(QSize(0, 50));
         exitB->setFont(font);
+        exitB->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
 
         verticalLayout_2->addWidget(exitB);
 

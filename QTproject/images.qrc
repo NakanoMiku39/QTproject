@@ -3,5 +3,7 @@
         <file>img/pandemic.jpg</file>
         <file>img/map.png</file>
         <file>img/title.jpg</file>
+        <file>img/infection_rate_marker.jpg</file>
+        <file>img/outbreak_marker.jpg</file>
     </qresource>
 </RCC>
