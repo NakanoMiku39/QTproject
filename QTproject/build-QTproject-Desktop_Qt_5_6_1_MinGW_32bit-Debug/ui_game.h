@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -49,6 +50,9 @@ public:
     QLabel *infection_rate;
     QWidget *widget;
     QTextEdit *city_status;
+    QWidget *city;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
 
     void setupUi(QWidget *game)
     {
@@ -61,7 +65,7 @@ public:
         game->setStyleSheet(QStringLiteral(""));
         map = new QLabel(game);
         map->setObjectName(QStringLiteral("map"));
-        map->setGeometry(QRect(40, -10, 1692, 965));
+        map->setGeometry(QRect(40, 0, 1692, 965));
         map->setStyleSheet(QStringLiteral("image: url(:/img/img/map.jpg);"));
         exit_game = new QPushButton(game);
         exit_game->setObjectName(QStringLiteral("exit_game"));
@@ -205,6 +209,15 @@ public:
         city_status = new QTextEdit(widget);
         city_status->setObjectName(QStringLiteral("city_status"));
         city_status->setGeometry(QRect(3, 3, 201, 171));
+        city = new QWidget(game);
+        city->setObjectName(QStringLiteral("city"));
+        city->setGeometry(QRect(200, 0, 1692, 965));
+        gridLayoutWidget = new QWidget(city);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(-1, -1, 1181, 881));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
         actions->raise();
         map->raise();
         exit_game->raise();
@@ -214,6 +227,7 @@ public:
         outbreaks->raise();
         infection_rate->raise();
         widget->raise();
+        city->raise();
 
         retranslateUi(game);
         QObject::connect(exit_game, SIGNAL(clicked()), game, SLOT(close()));

@@ -11,17 +11,12 @@ game::game(QWidget *parent) ://构造函数
     ui->city_status->setHidden(true);//隐藏城市状态
 
 
-    //label显示图片.
-    QLabel* q = new QLabel();
+    //label显示图片
+    QLabel* q = new QLabel("testing123");
+    ui->gridLayout->addWidget(q);
     q->setGeometry(100,100,100,100);
-    QImage *img=new QImage;                                   //新建image对象.
-    img->load("./img/infection_rate_marker.jpg");                           //复制资源文件里的图片路径.
-    q->setPixmap(QPixmap::fromImage(*img)); //将图片载入label，使用setPixmap,注意指针*img.
 
-    QPushButton* b = new QPushButton("test");
-    b->setGeometry(500,500,500,500);
-    //ui->setupUi(b);
-    //connect(b, b->clicked(), ui->city_status, hide);
+
 
 }
 
@@ -34,7 +29,12 @@ game::~game()//析构函数
 
 void game::on_show_actions_clicked()//展示或隐藏行动
 {
+
+
     if(ui->actions->isHidden() == true){
+
+        city c1("atlanta", "red", 250,250,200,50);
+
         ui->actions->show();
     }
     else if(ui->actions->isHidden() == false){
@@ -62,5 +62,20 @@ QString character::return_name()
     return character_name;
 }
 
-city::city(QString name, QString c):city_name(name), color(c), existed_disease_cube(0){}//构造函数
+city::city(QString name, QString c, int x, int y ,int w, int h):
+    city_name(name), color(c), existed_disease_cube(0), btn_X(x), btn_Y(y), btn_W(w), btn_H(h)
+{
+
+    QPushButton* p = new QPushButton(city_name, ui->gridLayoutWidget);
+    p->setGeometry(btn_X, btn_Y, btn_H, btn_W);
+    p->setMinimumWidth(btn_W);
+    p->setMinimumHeight(btn_H);
+
+    QMessageBox m (QMessageBox::Question,"Title","text",QMessageBox::Yes|QMessageBox::No);
+    m.exec();
+
+}//构造函数
+
+
+
 

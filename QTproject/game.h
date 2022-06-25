@@ -6,6 +6,8 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QIcon>
+#include <QMessageBox>
+#include <QPushButton>
 
 namespace Ui {
 class game;
@@ -16,6 +18,8 @@ class game : public QWidget
     Q_OBJECT
 
 public:
+
+
     explicit game(QWidget *parent = 0);
     ~game();
 
@@ -26,7 +30,7 @@ private slots:
     void on_show_hand_clicked();
 
 
-private:
+public:
     Ui::game *ui;
 };
 
@@ -55,15 +59,16 @@ public:
 };
 
 
-class city//城市类
+class city: public game//城市类
 {
 private:
     QString city_name, color;//城市名,颜色
-    int existed_disease_cube;//存在疾病块数
+    int existed_disease_cube, btn_X, btn_Y, btn_W, btn_H;//存在疾病块数
+
 
 public:
-    city(QString name, QString c);//构造函数
-
+    city(QString name, QString c, int x, int y, int w, int h);//构造函数
+    void show_city_status();
 };
 
 
