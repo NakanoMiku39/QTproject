@@ -19,6 +19,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,31 +30,31 @@ public:
     QLabel *map;
     QPushButton *exit_game;
     QPushButton *show_actions;
-    QListWidget *characters;
     QWidget *actions;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLineEdit *other_actions;
-    QPushButton *drive_ferry;
-    QPushButton *build_station;
-    QPushButton *direct_flight;
-    QPushButton *treat_disease;
-    QPushButton *charter_flight;
-    QPushButton *share_knowledge;
-    QPushButton *shuttle_flight;
-    QPushButton *discover_cure;
     QLineEdit *movment_actions;
+    QPushButton *drive_ferry;
+    QPushButton *direct_flight;
+    QPushButton *charter_flight;
+    QPushButton *shuttle_flight;
+    QLineEdit *other_actions;
+    QPushButton *build_station;
+    QPushButton *treat_disease;
+    QPushButton *share_knowledge;
+    QPushButton *discover_cure;
     QPushButton *show_hand;
     QListWidget *hand;
     QLabel *outbreaks;
     QLabel *infection_rate;
-    QLineEdit *lineEdit;
+    QWidget *widget;
+    QTextEdit *city_status;
 
     void setupUi(QWidget *game)
     {
         if (game->objectName().isEmpty())
             game->setObjectName(QStringLiteral("game"));
-        game->resize(1570, 965);
+        game->resize(1770, 965);
         QFont font;
         font.setPointSize(30);
         game->setFont(font);
@@ -75,30 +76,32 @@ public:
         show_actions->setMinimumSize(QSize(200, 50));
         show_actions->setMaximumSize(QSize(200, 50));
         show_actions->setFont(font1);
-        characters = new QListWidget(game);
-        characters->setObjectName(QStringLiteral("characters"));
-        characters->setGeometry(QRect(0, 70, 201, 171));
         actions = new QWidget(game);
         actions->setObjectName(QStringLiteral("actions"));
-        actions->setGeometry(QRect(200, 0, 411, 281));
+        actions->setGeometry(QRect(0, 50, 211, 600));
         actions->setMaximumSize(QSize(600, 600));
+        actions->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 127);\n"
+"color: rgb(255, 255, 255);"));
         formLayoutWidget = new QWidget(actions);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(0, 0, 406, 306));
+        formLayoutWidget->setGeometry(QRect(0, 0, 206, 591));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        other_actions = new QLineEdit(formLayoutWidget);
-        other_actions->setObjectName(QStringLiteral("other_actions"));
-        other_actions->setMaximumSize(QSize(200, 50));
+        movment_actions = new QLineEdit(formLayoutWidget);
+        movment_actions->setObjectName(QStringLiteral("movment_actions"));
+        movment_actions->setEnabled(true);
+        movment_actions->setMinimumSize(QSize(200, 50));
+        movment_actions->setMaximumSize(QSize(200, 50));
         QFont font2;
         font2.setFamily(QStringLiteral("Bauhaus 93"));
         font2.setPointSize(10);
-        other_actions->setFont(font2);
-        other_actions->setAlignment(Qt::AlignCenter);
-        other_actions->setReadOnly(true);
+        movment_actions->setFont(font2);
+        movment_actions->setEchoMode(QLineEdit::Normal);
+        movment_actions->setAlignment(Qt::AlignCenter);
+        movment_actions->setReadOnly(true);
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, other_actions);
+        formLayout->setWidget(0, QFormLayout::LabelRole, movment_actions);
 
         drive_ferry = new QPushButton(formLayoutWidget);
         drive_ferry->setObjectName(QStringLiteral("drive_ferry"));
@@ -107,6 +110,40 @@ public:
         drive_ferry->setFont(font1);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, drive_ferry);
+
+        direct_flight = new QPushButton(formLayoutWidget);
+        direct_flight->setObjectName(QStringLiteral("direct_flight"));
+        direct_flight->setMinimumSize(QSize(200, 50));
+        direct_flight->setMaximumSize(QSize(100, 25));
+        direct_flight->setFont(font1);
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, direct_flight);
+
+        charter_flight = new QPushButton(formLayoutWidget);
+        charter_flight->setObjectName(QStringLiteral("charter_flight"));
+        charter_flight->setMinimumSize(QSize(200, 50));
+        charter_flight->setMaximumSize(QSize(100, 25));
+        charter_flight->setFont(font1);
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, charter_flight);
+
+        shuttle_flight = new QPushButton(formLayoutWidget);
+        shuttle_flight->setObjectName(QStringLiteral("shuttle_flight"));
+        shuttle_flight->setMinimumSize(QSize(200, 50));
+        shuttle_flight->setMaximumSize(QSize(100, 25));
+        shuttle_flight->setFont(font1);
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, shuttle_flight);
+
+        other_actions = new QLineEdit(formLayoutWidget);
+        other_actions->setObjectName(QStringLiteral("other_actions"));
+        other_actions->setMinimumSize(QSize(200, 50));
+        other_actions->setMaximumSize(QSize(200, 50));
+        other_actions->setFont(font2);
+        other_actions->setAlignment(Qt::AlignCenter);
+        other_actions->setReadOnly(true);
+
+        formLayout->setWidget(8, QFormLayout::LabelRole, other_actions);
 
         build_station = new QPushButton(formLayoutWidget);
         build_station->setObjectName(QStringLiteral("build_station"));
@@ -117,15 +154,7 @@ public:
         font3.setPointSize(8);
         build_station->setFont(font3);
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, build_station);
-
-        direct_flight = new QPushButton(formLayoutWidget);
-        direct_flight->setObjectName(QStringLiteral("direct_flight"));
-        direct_flight->setMinimumSize(QSize(200, 50));
-        direct_flight->setMaximumSize(QSize(100, 25));
-        direct_flight->setFont(font1);
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, direct_flight);
+        formLayout->setWidget(10, QFormLayout::LabelRole, build_station);
 
         treat_disease = new QPushButton(formLayoutWidget);
         treat_disease->setObjectName(QStringLiteral("treat_disease"));
@@ -133,15 +162,7 @@ public:
         treat_disease->setMaximumSize(QSize(100, 25));
         treat_disease->setFont(font1);
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, treat_disease);
-
-        charter_flight = new QPushButton(formLayoutWidget);
-        charter_flight->setObjectName(QStringLiteral("charter_flight"));
-        charter_flight->setMinimumSize(QSize(200, 50));
-        charter_flight->setMaximumSize(QSize(100, 25));
-        charter_flight->setFont(font1);
-
-        formLayout->setWidget(4, QFormLayout::LabelRole, charter_flight);
+        formLayout->setWidget(11, QFormLayout::LabelRole, treat_disease);
 
         share_knowledge = new QPushButton(formLayoutWidget);
         share_knowledge->setObjectName(QStringLiteral("share_knowledge"));
@@ -152,15 +173,7 @@ public:
         font4.setPointSize(12);
         share_knowledge->setFont(font4);
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, share_knowledge);
-
-        shuttle_flight = new QPushButton(formLayoutWidget);
-        shuttle_flight->setObjectName(QStringLiteral("shuttle_flight"));
-        shuttle_flight->setMinimumSize(QSize(200, 50));
-        shuttle_flight->setMaximumSize(QSize(100, 25));
-        shuttle_flight->setFont(font1);
-
-        formLayout->setWidget(5, QFormLayout::LabelRole, shuttle_flight);
+        formLayout->setWidget(12, QFormLayout::LabelRole, share_knowledge);
 
         discover_cure = new QPushButton(formLayoutWidget);
         discover_cure->setObjectName(QStringLiteral("discover_cure"));
@@ -168,19 +181,7 @@ public:
         discover_cure->setMaximumSize(QSize(100, 25));
         discover_cure->setFont(font4);
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, discover_cure);
-
-        movment_actions = new QLineEdit(formLayoutWidget);
-        movment_actions->setObjectName(QStringLiteral("movment_actions"));
-        movment_actions->setEnabled(true);
-        movment_actions->setMinimumSize(QSize(200, 50));
-        movment_actions->setMaximumSize(QSize(200, 50));
-        movment_actions->setFont(font2);
-        movment_actions->setEchoMode(QLineEdit::Normal);
-        movment_actions->setAlignment(Qt::AlignCenter);
-        movment_actions->setReadOnly(true);
-
-        formLayout->setWidget(0, QFormLayout::LabelRole, movment_actions);
+        formLayout->setWidget(13, QFormLayout::LabelRole, discover_cure);
 
         show_hand = new QPushButton(game);
         show_hand->setObjectName(QStringLiteral("show_hand"));
@@ -188,38 +189,34 @@ public:
         show_hand->setFont(font1);
         hand = new QListWidget(game);
         hand->setObjectName(QStringLiteral("hand"));
-        hand->setGeometry(QRect(200, 770, 181, 192));
+        hand->setGeometry(QRect(0, 650, 201, 192));
         outbreaks = new QLabel(game);
         outbreaks->setObjectName(QStringLiteral("outbreaks"));
-        outbreaks->setGeometry(QRect(230, 510, 51, 61));
+        outbreaks->setGeometry(QRect(230, 500, 51, 61));
         outbreaks->setStyleSheet(QStringLiteral("image: url(:/img/img/outbreak_marker.jpg);"));
         infection_rate = new QLabel(game);
         infection_rate->setObjectName(QStringLiteral("infection_rate"));
         infection_rate->setGeometry(QRect(1070, 160, 71, 51));
         infection_rate->setStyleSheet(QStringLiteral("image: url(:/img/img/infection_rate_marker.jpg);"));
-        lineEdit = new QLineEdit(game);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(1000, 220, 131, 41));
-        lineEdit->setFont(font2);
-        lineEdit->setAlignment(Qt::AlignCenter);
-        lineEdit->setReadOnly(true);
+        widget = new QWidget(game);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(1569, -1, 201, 961));
+        widget->setStyleSheet(QStringLiteral(""));
+        city_status = new QTextEdit(widget);
+        city_status->setObjectName(QStringLiteral("city_status"));
+        city_status->setGeometry(QRect(3, 3, 201, 171));
+        actions->raise();
         map->raise();
         exit_game->raise();
         show_actions->raise();
-        characters->raise();
         show_hand->raise();
         hand->raise();
         outbreaks->raise();
         infection_rate->raise();
-        actions->raise();
-        lineEdit->raise();
+        widget->raise();
 
         retranslateUi(game);
         QObject::connect(exit_game, SIGNAL(clicked()), game, SLOT(close()));
-        QObject::connect(lineEdit, SIGNAL(returnPressed()), actions, SLOT(show()));
-
-        characters->setCurrentRow(-1);
-
 
         QMetaObject::connectSlotsByName(game);
     } // setupUi
@@ -230,20 +227,19 @@ public:
         map->setText(QString());
         exit_game->setText(QApplication::translate("game", "EXIT GAME", 0));
         show_actions->setText(QApplication::translate("game", "ACTIONS", 0));
-        other_actions->setText(QApplication::translate("game", "OTHER ACTIONS", 0));
-        drive_ferry->setText(QApplication::translate("game", "Drive / Ferry", 0));
-        build_station->setText(QApplication::translate("game", "Build a Research Station", 0));
-        direct_flight->setText(QApplication::translate("game", "Direct Flight", 0));
-        treat_disease->setText(QApplication::translate("game", "Treat Disease", 0));
-        charter_flight->setText(QApplication::translate("game", "Charter Flight", 0));
-        share_knowledge->setText(QApplication::translate("game", "Share Knowledge", 0));
-        shuttle_flight->setText(QApplication::translate("game", "Shuttle Flight", 0));
-        discover_cure->setText(QApplication::translate("game", "Discover a Cure", 0));
         movment_actions->setText(QApplication::translate("game", "MOVEMENT ACTIONS", 0));
+        drive_ferry->setText(QApplication::translate("game", "Drive / Ferry", 0));
+        direct_flight->setText(QApplication::translate("game", "Direct Flight", 0));
+        charter_flight->setText(QApplication::translate("game", "Charter Flight", 0));
+        shuttle_flight->setText(QApplication::translate("game", "Shuttle Flight", 0));
+        other_actions->setText(QApplication::translate("game", "OTHER ACTIONS", 0));
+        build_station->setText(QApplication::translate("game", "Build a Research Station", 0));
+        treat_disease->setText(QApplication::translate("game", "Treat Disease", 0));
+        share_knowledge->setText(QApplication::translate("game", "Share Knowledge", 0));
+        discover_cure->setText(QApplication::translate("game", "Discover a Cure", 0));
         show_hand->setText(QApplication::translate("game", "HAND", 0));
         outbreaks->setText(QString());
         infection_rate->setText(QString());
-        lineEdit->setText(QApplication::translate("game", "MASCOW", 0));
     } // retranslateUi
 
 };

@@ -8,14 +8,23 @@ game::game(QWidget *parent) ://构造函数
     ui->setupUi(this);
     ui->actions->setHidden(true);//隐藏行动
     ui->hand->setHidden(true);//隐藏手牌
+    ui->city_status->setHidden(true);//隐藏城市状态
 
-    //medic* m = new medic("Medic");
-    //scientist* s = new scientist("Scientist");
 
-    //ui->characters->addItem(m->return_name());
-    //ui->characters->addItem(s->return_name());
+    //label显示图片.
+    QLabel* q = new QLabel();
+    q->setGeometry(100,100,100,100);
+    QImage *img=new QImage;                                   //新建image对象.
+    img->load("./img/infection_rate_marker.jpg");                           //复制资源文件里的图片路径.
+    q->setPixmap(QPixmap::fromImage(*img)); //将图片载入label，使用setPixmap,注意指针*img.
+
+    QPushButton* b = new QPushButton("test");
+    b->setGeometry(500,500,500,500);
+    //ui->setupUi(b);
+    //connect(b, b->clicked(), ui->city_status, hide);
 
 }
+
 
 game::~game()//析构函数
 {
@@ -54,3 +63,4 @@ QString character::return_name()
 }
 
 city::city(QString name, QString c):city_name(name), color(c), existed_disease_cube(0){}//构造函数
+

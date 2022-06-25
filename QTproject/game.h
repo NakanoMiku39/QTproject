@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QString>
+#include <QPixmap>
+#include <QLabel>
+#include <QIcon>
 
 namespace Ui {
 class game;
@@ -21,6 +24,8 @@ private slots:
     void on_show_actions_clicked();
 
     void on_show_hand_clicked();
+
+
 private:
     Ui::game *ui;
 };
@@ -42,6 +47,8 @@ private:
     QString character_name;//角色名
     int hand = 4;//手牌数
 public:
+
+
     character(QString name);//构造函数
     //bool check_hand();//检查是否超出手牌上限
     QString return_name();
@@ -59,16 +66,5 @@ public:
 
 };
 
-
-class medic: public character{
-public:
-
-};
-
-
-class scientist: public character{
-public:
-
-};
 
 #endif // GAME_H
