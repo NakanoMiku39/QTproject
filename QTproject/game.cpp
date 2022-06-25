@@ -8,7 +8,12 @@ game::game(QWidget *parent) ://构造函数
     ui->setupUi(this);
     ui->actions->setHidden(true);//隐藏行动
     ui->hand->setHidden(true);//隐藏手牌
-    ui->characters->addItem("test1");
+
+    //medic* m = new medic("Medic");
+    //scientist* s = new scientist("Scientist");
+
+    //ui->characters->addItem(m->return_name());
+    //ui->characters->addItem(s->return_name());
 
 }
 
@@ -42,5 +47,10 @@ void game::on_show_hand_clicked()//展示或隐藏手牌
 cards::cards(QString name):card_name(name){}//构造函数
 
 character::character(QString name):character_name(name){}//构造函数
+
+QString character::return_name()
+{
+    return character_name;
+}
 
 city::city(QString name, QString c):city_name(name), color(c), existed_disease_cube(0){}//构造函数

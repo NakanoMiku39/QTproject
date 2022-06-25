@@ -21,9 +21,6 @@ private slots:
     void on_show_actions_clicked();
 
     void on_show_hand_clicked();
-
-
-
 private:
     Ui::game *ui;
 };
@@ -38,6 +35,7 @@ public:
 
 };
 
+
 class character//角色类
 {
 private:
@@ -45,8 +43,10 @@ private:
     int hand = 4;//手牌数
 public:
     character(QString name);//构造函数
-
+    //bool check_hand();//检查是否超出手牌上限
+    QString return_name();
 };
+
 
 class city//城市类
 {
@@ -58,4 +58,17 @@ public:
     city(QString name, QString c);//构造函数
 
 };
+
+
+class medic: public character{
+public:
+
+};
+
+
+class scientist: public character{
+public:
+
+};
+
 #endif // GAME_H

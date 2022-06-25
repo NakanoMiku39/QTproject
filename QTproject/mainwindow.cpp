@@ -16,12 +16,11 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_startB_clicked()
+void MainWindow::on_startB_clicked()//开始新游戏
 {
     game* g = new game();
     this->hide();
     g->show();
-    //this->paintEvent();
 }
 
 
