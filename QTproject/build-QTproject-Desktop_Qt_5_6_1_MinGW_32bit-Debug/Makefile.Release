@@ -101,11 +101,24 @@ compiler_rcc_make_all: release/qrc_images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_images.cpp
 release/qrc_images.cpp: ../images.qrc \
+		../img/blue_cure.jpg \
 		../img/infection_rate_marker.jpg \
+		../img/black_cure.png \
+		../img/outbreak_marker.png \
+		../img/blue_cure.png \
+		../img/infection_rate_marker.png \
 		../img/map.jpg \
-		../img/outbreak_marker.jpg \
+		../img/red_cure.jpg \
+		../img/yellow_cure.jpg \
+		../img/yellow_cure.png \
+		../img/red_cure.png \
+		../img/title.jpg \
 		../img/pandemic.jpg \
-		../img/title.jpg
+		../img/research_station.jpg \
+		../img/title.png \
+		../img/research_station.png \
+		../img/black_cure.jpg \
+		../img/outbreak_marker.jpg
 	C:\Qt\Qt5.6.1\5.6\mingw49_32\bin\rcc.exe -name images ..\images.qrc -o release\qrc_images.cpp
 
 compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_game.cpp
@@ -330,6 +343,20 @@ release/moc_game.cpp: C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QPixmap \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QIcon \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
+		../city.h \
+		../game.h \
 		../game.h
 	C:\Qt\Qt5.6.1\5.6\mingw49_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.6.1/5.6/mingw49_32/mkspecs/win32-g++ -IC:/Users/jinle/source/repos/QTproject -IC:/Qt/Qt5.6.1/5.6/mingw49_32/include -IC:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets -IC:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui -IC:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtANGLE -IC:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore -I. ..\game.h -o release\moc_game.cpp
 
@@ -630,7 +657,15 @@ release/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QWidget \
 		../game.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QPixmap \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QIcon \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qdialog.h \
+		../city.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\mainwindow.cpp
 
 release/game.o: ../game.cpp ../game.h \
@@ -739,11 +774,23 @@ release/game.o: ../game.cpp ../game.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QPixmap \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/QIcon \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
+		../city.h \
 		ui_game.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qactiongroup.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qapplication.h \
@@ -761,11 +808,11 @@ release/game.o: ../game.cpp ../game.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QGridLayout \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QHeaderView \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -779,8 +826,6 @@ release/game.o: ../game.cpp ../game.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QLineEdit \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtextcursor.h \
@@ -790,9 +835,9 @@ release/game.o: ../game.cpp ../game.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qlistview.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QTextEdit \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qtextedit.h \
+		C:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtextdocument.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\game.o ..\game.cpp
 
 release/qrc_images.o: release/qrc_images.cpp 

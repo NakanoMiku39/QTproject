@@ -426,7 +426,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/img/img/outbreak_marker.jpg);</string>
+    <string notr="true">image: url(:/img/img/outbreak_marker.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -442,7 +442,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/img/img/infection_rate_marker.jpg);</string>
+    <string notr="true">image: url(:/img/img/infection_rate_marker.png);</string>
    </property>
    <property name="text">
     <string/>

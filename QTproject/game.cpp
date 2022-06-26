@@ -8,13 +8,7 @@ game::game(QWidget *parent) ://构造函数
     ui->setupUi(this);
     ui->actions->setHidden(true);//隐藏行动
     ui->hand->setHidden(true);//隐藏手牌
-    ui->city_status->setHidden(true);//隐藏城市状态
-
-
-    //label显示图片
-    QLabel* q = new QLabel("testing123");
-    ui->gridLayout->addWidget(q);
-    q->setGeometry(100,100,100,100);
+    city* c1 = new city("atlanta", "red", 100, 100, 100, 100);
 
 
 
@@ -29,11 +23,8 @@ game::~game()//析构函数
 
 void game::on_show_actions_clicked()//展示或隐藏行动
 {
-
-
+    c1->show_city_status();
     if(ui->actions->isHidden() == true){
-
-        city c1("atlanta", "red", 250,250,200,50);
 
         ui->actions->show();
     }
@@ -53,29 +44,14 @@ void game::on_show_hand_clicked()//展示或隐藏手牌
     }
 }
 
-cards::cards(QString name):card_name(name){}//构造函数
-
-character::character(QString name):character_name(name){}//构造函数
-
-QString character::return_name()
+city::city(QString name, QString c, int x, int y, int w, int h) :
+    city_name(name), color(c), btn_X(x), btn_Y(y), btn_W(w), btn_H(h)
 {
-    return character_name;
+
 }
 
-city::city(QString name, QString c, int x, int y ,int w, int h):
-    city_name(name), color(c), existed_disease_cube(0), btn_X(x), btn_Y(y), btn_W(w), btn_H(h)
+void city::show_city_status()
 {
-
-    QPushButton* p = new QPushButton(city_name, ui->gridLayoutWidget);
-    p->setGeometry(btn_X, btn_Y, btn_H, btn_W);
-    p->setMinimumWidth(btn_W);
-    p->setMinimumHeight(btn_H);
-
-    QMessageBox m (QMessageBox::Question,"Title","text",QMessageBox::Yes|QMessageBox::No);
-    m.exec();
-
-}//构造函数
-
-
-
-
+    QWidget* q = new QWidget();
+    q->show();
+}

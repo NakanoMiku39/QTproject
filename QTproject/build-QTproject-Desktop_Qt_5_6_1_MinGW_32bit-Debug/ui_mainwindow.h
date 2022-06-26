@@ -50,7 +50,7 @@ public:
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         widget = new QWidget(verticalLayoutWidget);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setStyleSheet(QStringLiteral("image: url(:/img/img/title.jpg);"));
+        widget->setStyleSheet(QStringLiteral("image: url(:/img/img/title.png);"));
 
         verticalLayout_2->addWidget(widget);
 

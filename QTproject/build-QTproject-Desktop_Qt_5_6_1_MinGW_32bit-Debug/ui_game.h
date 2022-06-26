@@ -197,11 +197,11 @@ public:
         outbreaks = new QLabel(game);
         outbreaks->setObjectName(QStringLiteral("outbreaks"));
         outbreaks->setGeometry(QRect(230, 500, 51, 61));
-        outbreaks->setStyleSheet(QStringLiteral("image: url(:/img/img/outbreak_marker.jpg);"));
+        outbreaks->setStyleSheet(QStringLiteral("image: url(:/img/img/outbreak_marker.png);"));
         infection_rate = new QLabel(game);
         infection_rate->setObjectName(QStringLiteral("infection_rate"));
         infection_rate->setGeometry(QRect(1070, 160, 71, 51));
-        infection_rate->setStyleSheet(QStringLiteral("image: url(:/img/img/infection_rate_marker.jpg);"));
+        infection_rate->setStyleSheet(QStringLiteral("image: url(:/img/img/infection_rate_marker.png);"));
         widget = new QWidget(game);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(1569, -1, 201, 961));
