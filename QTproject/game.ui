@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1770</width>
+    <width>1566</width>
     <height>965</height>
    </rect>
   </property>
@@ -420,7 +420,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>500</y>
+     <y>510</y>
      <width>51</width>
      <height>61</height>
     </rect>
@@ -448,49 +448,18 @@ color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QPushButton" name="atlanta">
    <property name="geometry">
     <rect>
-     <x>1569</x>
-     <y>-1</y>
-     <width>201</width>
-     <height>961</height>
+     <x>430</x>
+     <y>330</y>
+     <width>31</width>
+     <height>31</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true"/>
+   <property name="text">
+    <string/>
    </property>
-   <widget class="QTextEdit" name="city_status">
-    <property name="geometry">
-     <rect>
-      <x>3</x>
-      <y>3</y>
-      <width>201</width>
-      <height>171</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QWidget" name="city" native="true">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>0</y>
-     <width>1692</width>
-     <height>965</height>
-    </rect>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>-1</x>
-      <y>-1</y>
-      <width>1181</width>
-      <height>881</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout"/>
-   </widget>
   </widget>
   <zorder>actions</zorder>
   <zorder>map</zorder>
@@ -500,8 +469,7 @@ color: rgb(255, 255, 255);</string>
   <zorder>hand</zorder>
   <zorder>outbreaks</zorder>
   <zorder>infection_rate</zorder>
-  <zorder>widget</zorder>
-  <zorder>city</zorder>
+  <zorder>atlanta</zorder>
  </widget>
  <resources/>
  <connections>

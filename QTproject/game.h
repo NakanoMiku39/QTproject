@@ -8,6 +8,7 @@
 #include <QIcon>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QTextEdit>
 
 namespace Ui {
 class game;
@@ -17,9 +18,10 @@ class game;
 class city
 {
 private:
-    QString city_name, color;
-    int btn_X, btn_Y, btn_W, btn_H;
+
+    int X, Y, W, H, disease_block = 2;
 public:
+    QString city_name, color;
     city(QString name, QString c, int x, int y, int w, int h);
     void show_city_status();
 };
@@ -30,7 +32,7 @@ class game : public QWidget
     Q_OBJECT
 
 public:
-    city* c1 = new city("atlanta", "red", 100, 100, 100, 100);
+    city* atlanta = new city("atlanta", "red", 1577, 40, 300, 400);
 
     explicit game(QWidget *parent = 0);
     ~game();
@@ -41,8 +43,13 @@ private slots:
 
     void on_show_hand_clicked();
 
+    void show_city_status(city* c);
+
+    void on_atlanta_clicked();
+
 public:
     Ui::game *ui;
+    QWidget* q1 = new QWidget();
 };
 
 

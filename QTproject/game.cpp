@@ -8,9 +8,6 @@ game::game(QWidget *parent) ://构造函数
     ui->setupUi(this);
     ui->actions->setHidden(true);//隐藏行动
     ui->hand->setHidden(true);//隐藏手牌
-    city* c1 = new city("atlanta", "red", 100, 100, 100, 100);
-
-
 
 }
 
@@ -23,7 +20,6 @@ game::~game()//析构函数
 
 void game::on_show_actions_clicked()//展示或隐藏行动
 {
-    c1->show_city_status();
     if(ui->actions->isHidden() == true){
 
         ui->actions->show();
@@ -44,14 +40,26 @@ void game::on_show_hand_clicked()//展示或隐藏手牌
     }
 }
 
+
+
+
 city::city(QString name, QString c, int x, int y, int w, int h) :
-    city_name(name), color(c), btn_X(x), btn_Y(y), btn_W(w), btn_H(h)
+    city_name(name), color(c), X(x), Y(y), W(w), H(h)
 {
 
 }
 
-void city::show_city_status()
+void game::show_city_status(city* c)
 {
-    QWidget* q = new QWidget();
-    q->show();
+    QLabel* e = new QLabel(c->city_name, q1);
+    e->setGeometry(10, 0, 100, 100);
+    q1->setFont(QFont("Bauhaus 93", 10));
+    q1->setGeometry(100, 100, 500, 500);
+    q1->show();
+}
+
+
+void game::on_atlanta_clicked()
+{
+    show_city_status(atlanta);
 }

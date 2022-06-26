@@ -14,13 +14,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -48,17 +46,13 @@ public:
     QListWidget *hand;
     QLabel *outbreaks;
     QLabel *infection_rate;
-    QWidget *widget;
-    QTextEdit *city_status;
-    QWidget *city;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
+    QPushButton *atlanta;
 
     void setupUi(QWidget *game)
     {
         if (game->objectName().isEmpty())
             game->setObjectName(QStringLiteral("game"));
-        game->resize(1770, 965);
+        game->resize(1566, 965);
         QFont font;
         font.setPointSize(30);
         game->setFont(font);
@@ -196,28 +190,15 @@ public:
         hand->setGeometry(QRect(0, 650, 201, 192));
         outbreaks = new QLabel(game);
         outbreaks->setObjectName(QStringLiteral("outbreaks"));
-        outbreaks->setGeometry(QRect(230, 500, 51, 61));
+        outbreaks->setGeometry(QRect(230, 510, 51, 61));
         outbreaks->setStyleSheet(QStringLiteral("image: url(:/img/img/outbreak_marker.png);"));
         infection_rate = new QLabel(game);
         infection_rate->setObjectName(QStringLiteral("infection_rate"));
         infection_rate->setGeometry(QRect(1070, 160, 71, 51));
         infection_rate->setStyleSheet(QStringLiteral("image: url(:/img/img/infection_rate_marker.png);"));
-        widget = new QWidget(game);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(1569, -1, 201, 961));
-        widget->setStyleSheet(QStringLiteral(""));
-        city_status = new QTextEdit(widget);
-        city_status->setObjectName(QStringLiteral("city_status"));
-        city_status->setGeometry(QRect(3, 3, 201, 171));
-        city = new QWidget(game);
-        city->setObjectName(QStringLiteral("city"));
-        city->setGeometry(QRect(200, 0, 1692, 965));
-        gridLayoutWidget = new QWidget(city);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(-1, -1, 1181, 881));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        atlanta = new QPushButton(game);
+        atlanta->setObjectName(QStringLiteral("atlanta"));
+        atlanta->setGeometry(QRect(430, 330, 31, 31));
         actions->raise();
         map->raise();
         exit_game->raise();
@@ -226,8 +207,7 @@ public:
         hand->raise();
         outbreaks->raise();
         infection_rate->raise();
-        widget->raise();
-        city->raise();
+        atlanta->raise();
 
         retranslateUi(game);
         QObject::connect(exit_game, SIGNAL(clicked()), game, SLOT(close()));
@@ -254,6 +234,7 @@ public:
         show_hand->setText(QApplication::translate("game", "HAND", 0));
         outbreaks->setText(QString());
         infection_rate->setText(QString());
+        atlanta->setText(QString());
     } // retranslateUi
 
 };
