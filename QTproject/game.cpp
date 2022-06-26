@@ -8,7 +8,6 @@ game::game(QWidget *parent) ://构造函数
     ui->setupUi(this);
     ui->actions->setHidden(true);//隐藏行动
     ui->hand->setHidden(true);//隐藏手牌
-
 }
 
 
@@ -43,18 +42,18 @@ void game::on_show_hand_clicked()//展示或隐藏手牌
 
 
 
-city::city(QString name, QString c, int x, int y, int w, int h) :
-    city_name(name), color(c), X(x), Y(y), W(w), H(h)
+city::city(QString name, QString c) :
+    city_name(name), color(c)
 {
 
 }
 
 void game::show_city_status(city* c)
 {
-    QLabel* e = new QLabel(c->city_name, q1);
-    e->setGeometry(10, 0, 100, 100);
+    e->setText(c->city_name + "\ncolor: " + c->color + "\n disease cubes: " + c->disease_block);
+    e->setGeometry(10, 0, 300, 400);
     q1->setFont(QFont("Bauhaus 93", 10));
-    q1->setGeometry(100, 100, 500, 500);
+    q1->setGeometry(1590, 50, 300, 400);
     q1->show();
 }
 
@@ -62,4 +61,25 @@ void game::show_city_status(city* c)
 void game::on_atlanta_clicked()
 {
     show_city_status(atlanta);
+}
+
+
+void game::on_chicago_clicked()
+{
+    show_city_status(chicago);
+}
+
+void game::on_montreal_clicked()
+{
+    show_city_status(montreal);
+}
+
+void game::on_san_francisco_clicked()
+{
+    show_city_status(san_francisco);
+}
+
+void game::on_algiers_clicked()
+{
+    show_city_status(algiers);
 }
