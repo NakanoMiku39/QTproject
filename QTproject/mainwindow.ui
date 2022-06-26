@@ -33,7 +33,7 @@
      <item>
       <widget class="QWidget" name="widget" native="true">
        <property name="styleSheet">
-        <string notr="true">image: url(:/img/img/title.jpg);</string>
+        <string notr="true">image: url(:/img/img/title.png);</string>
        </property>
       </widget>
      </item>
